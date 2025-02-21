@@ -18,10 +18,10 @@ app.use("/auth", authRoutes);
 app.use("/api", taskRoutes);
 
 mongoose
-  .connect("mongodb://localhost:27017/task-manager")
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB connected");
-    app.listen(5000, () => {
+    app.listen(process.env.PORT || 5000, () => {
       console.log("Server running on port 5000");
     });
   })
