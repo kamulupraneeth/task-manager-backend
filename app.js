@@ -16,7 +16,7 @@ app.use(express.json());
 app.use("/auth", authRoutes);
 app.use("/api", taskRoutes);
 
-const uri = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}`;
+const uri = `mongodb://${process.env.MONGOUSER}:${process.env.MONGOPASSWORD}@${process.env.MONGOHOST}:${process.env.MONGOPORT}`;
 
 mongoose
   .connect(uri)
