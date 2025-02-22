@@ -6,8 +6,6 @@ const cors = require("cors");
 const authRoutes = require("./routes/authRoutes");
 const taskRoutes = require("./routes/taskRoutes");
 
-const uri = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_HOST}:12361`;
-
 const app = express();
 app.use(
   cors({
@@ -17,6 +15,8 @@ app.use(
 app.use(express.json());
 app.use("/auth", authRoutes);
 app.use("/api", taskRoutes);
+
+const uri = process.env.MONGO_URL;
 
 mongoose
   .connect(uri)
