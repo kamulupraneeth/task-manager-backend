@@ -16,7 +16,8 @@ app.use(express.json());
 app.use("/auth", authRoutes);
 app.use("/api", taskRoutes);
 
-const uri = `mongodb://mongo:ZNgyfbNldQPsrsxEdyWTnjCVXcvjkTUQ@metro.proxy.rlwy.net:23708`;
+// const uri = `mongodb://mongo:ZNgyfbNldQPsrsxEdyWTnjCVXcvjkTUQ@metro.proxy.rlwy.net:23708`;
+const uri = `mongodb://${process.env.MONGOUSER}:${process.env.MONGOPASSWORD}@${process.env.MONGOHOST}:${process.env.MONGOPORT}`;
 
 mongoose
   .connect(uri)

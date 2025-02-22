@@ -4,6 +4,9 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 const router = express.Router();
+router.get("/hello", (req, res) => {
+  res.send("Hello, world!");
+});
 
 //Middleware to verify JWT
 const authenticate = (req, res, next) => {
